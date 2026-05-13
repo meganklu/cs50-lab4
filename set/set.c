@@ -65,7 +65,7 @@ set_insert(set_t* set, const char* key, void* item)
 	// Search the set for the key
 	if (set_find(set, key) != NULL) {
 		// Return false if the key is already in the set
-		return fasle;
+		return false;
 	}
 
 	// Allocate a new node to be added to the list
@@ -130,8 +130,8 @@ set_find(set_t* set, const char* key)
 	// Loop through the list starting at the head 
 	// until the key is found or the node is NULL
 	for (setnode_t* current = set->head; 
-			current != NULL; 
-			current = current->next) {
+		current != NULL; 
+		current = current->next) {
 		// Return the item if the key of current matches the search key
 		if (strcmp(key, current->key)) {
 			return current->item;
@@ -147,7 +147,31 @@ set_find(set_t* set, const char* key)
 void 
 set_print(set_t* set, FILE* fp, void (*itemprint)(FILE* fp, const char* key, void* item) )
 {
-	// TODO
+	// Check if the file pointer is NULL
+	// Print nothing if file pointer is NULL
+	if (fp != NULL) {
+		// Check if the set is NULL
+		if (set != NULL) {
+			fputc('{', fp);
+
+			// Loop through all nodes in the list starting at the head 
+			for (setnode_t* current = set->head; 
+				current != NULL; 
+				current = current->next) {
+					// Print the node using the function parameter
+					// Function prints (key,item)
+					if (itemprint != NULL) {
+						(*itemprint)(fp, current->key, current->item);
+						fputc(',', fp);
+					}
+			}
+
+			fputc('}', fp);
+		} else {
+			// Print (null) if set is NULL
+			fputs("(null)", fp);
+		}
+	}
 }
 
 /**************** set_iterate ****************/
@@ -155,7 +179,16 @@ set_print(set_t* set, FILE* fp, void (*itemprint)(FILE* fp, const char* key, voi
 void 
 set_iterate(set_t* set, void* arg, void (*itemfunc)(void* arg, const char* key, void* item) )
 {
-	// TODO
+	// Check if parameters are NULL
+	if (set != NULL && itemfunc != NULL) {
+		// Loop through all nodes in the list starting at the head
+		for (setnode_t* current = set->head; 
+			current != NULL; 
+			current = current->next) {
+				// Call itemfunc on each node
+				(*itemfunc)(arg, current->key, current->item);
+		}
+	}
 }
 
 /**************** set_delete ****************/
@@ -163,5 +196,35 @@ set_iterate(set_t* set, void* arg, void (*itemfunc)(void* arg, const char* key, 
 void
 set_delete(set_t* set, void (*itemdelete)(void* item) )
 {
-	// TODO
+	// Check if the set is NULL
+	if (set != NULL) {
+		// Loop through all nodes in the set starting at the head
+		for (setnode_t* current = set->head; current != NULL; ) {
+				// Check if the key is NULL
+				if (current->key != NULL) {
+					// Free the memory for the string representing the key
+					mem_free(current->key);
+				}
+
+				// Check if the itemdelete function is NULL
+				if (itemdelete != NULL) {
+					// Delete the node's item if possible
+					(*itemdelete)(current->item);
+				}
+
+				// Save the next node
+				setnode_t* next = current->next;
+				// Free the current node
+				mem_free(current);
+				// Move current to the next node
+				current = next;
+		}
+
+		// Free the entire set
+		mem_free(set);
+	}
+
+#ifdef MEMTEST
+	mem_report(stdout, "End of set_delete");
+#endif
 }

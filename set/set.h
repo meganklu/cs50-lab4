@@ -41,7 +41,7 @@ set_t* set_new(void);
  *   valid set pointer, valid string pointer, and pointer to item.
  * We return:
  *  false if key exists, any parameter is NULL, or error;
- *  true iff new item was inserted.
+ *  true if new item was inserted.
  * Caller is responsible for:
  *   later calling set_delete to free the memory used by key strings.
  * Notes:
