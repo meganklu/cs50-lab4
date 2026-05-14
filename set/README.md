@@ -73,6 +73,7 @@ The `settest.c` program reads lines from stdin and inserts each into a set as th
 The key is the first word in the line.
 The test then searches for specific keys.
 It tests a the error and edge cases described below.
+Comments in `settest.c` show when each of these cases are tested.
 
 `set_new` tests:
 - Create a new set
@@ -94,7 +95,7 @@ It tests a the error and edge cases described below.
     - Key at the end of the set
     - Key in the middle of the set
     - Check that (key,item) pair was not removed from the set with `set_print` and count
-- Key not found in sert
+- Key not found in set
 
 `set_print` tests:
 - Null set (prints (null))

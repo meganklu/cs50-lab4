@@ -1,0 +1,18 @@
+Line 1. This line will be added
+Line 2. This line will not be added
+One_word_line_key_will_be_the_same_as_the_item
+One
+Line that will also be a duplicate
+Unique line
+Another unique line
+1234567890
+Hello world
+1 2 3
+! The key will be an exclamation mark
+? The key will be a question mark
+:) The key will be a smiley face
+<3 The key will be a heart
+ 
+Megan Lu
+
+Final line to be added

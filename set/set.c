@@ -48,6 +48,11 @@ set_new(void)
 	} else {
 		// Initialize contents of set structure
 		set->head = NULL;
+
+#ifdef MEMTEST
+		mem_report(stdout, "After set_new");
+#endif
+
 		return set;
 	}
 }
@@ -79,7 +84,7 @@ set_insert(set_t* set, const char* key, void* item)
 	new->next = set->head;
 	set->head = new;
 
-#ifdef TESTING
+#ifdef MEMTEST
 	mem_report(stdout, "After set_insert");
 #endif
 	
@@ -133,7 +138,7 @@ set_find(set_t* set, const char* key)
 		current != NULL; 
 		current = current->next) {
 		// Return the item if the key of current matches the search key
-		if (strcmp(key, current->key)) {
+		if (current->key != NULL && strcmp(key, current->key) == 0) {
 			return current->item;
 		}
 	}

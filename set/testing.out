@@ -1,0 +1,191 @@
+./settest < test.txt
+**************** set test cases ****************
+
+****************************************
+Create a set...
+After set_new: 1 malloc, 0 free, 0 free(NULL), 1 net
+Count: 0
+The empty set:
+{}
+
+****************************************
+
+Testing set_insert (all return false)...
+
+Test with null set, good key and item...
+Return value: 0
+
+Test with good set and item, null key...
+Return value: 0
+
+Test with good set and key, null item...
+Return value: 0
+
+Count (should be zero): 0
+
+Testing set_insert (non-null parameters)...
+
+First insertion: adding (key,"line")...
+After set_insert: 3 malloc, 0 free, 0 free(NULL), 3 net
+Return value: 1
+
+The set with one (key,item) pair:
+{(key,"line"),}
+
+Count (should be 1): 1
+
+Adding (Line,"Line 1. This line will be added")...
+After set_insert: 5 malloc, 0 free, 0 free(NULL), 5 net
+Return value: 1
+
+Adding (Line,"Line 2. This line will not be added")...
+Return value: 0
+
+Adding (One_word_line_key_will_be_the_same_as_the_item,"One_word_line_key_will_be_the_same_as_the_item")...
+After set_insert: 7 malloc, 0 free, 0 free(NULL), 7 net
+Return value: 1
+
+Adding (One,"One")...
+After set_insert: 9 malloc, 0 free, 0 free(NULL), 9 net
+Return value: 1
+
+Adding (Line,"Line that will also be a duplicate")...
+Return value: 0
+
+Adding (Unique,"Unique line")...
+After set_insert: 11 malloc, 0 free, 0 free(NULL), 11 net
+Return value: 1
+
+Adding (Another,"Another unique line")...
+After set_insert: 13 malloc, 0 free, 0 free(NULL), 13 net
+Return value: 1
+
+Adding (1234567890,"1234567890")...
+After set_insert: 15 malloc, 0 free, 0 free(NULL), 15 net
+Return value: 1
+
+Adding (Hello,"Hello world")...
+After set_insert: 17 malloc, 0 free, 0 free(NULL), 17 net
+Return value: 1
+
+Adding (1,"1 2 3")...
+After set_insert: 19 malloc, 0 free, 0 free(NULL), 19 net
+Return value: 1
+
+Adding (!,"! The key will be an exclamation mark")...
+After set_insert: 21 malloc, 0 free, 0 free(NULL), 21 net
+Return value: 1
+
+Adding (?,"? The key will be a question mark")...
+After set_insert: 23 malloc, 0 free, 0 free(NULL), 23 net
+Return value: 1
+
+Adding (:),":) The key will be a smiley face")...
+After set_insert: 25 malloc, 0 free, 0 free(NULL), 25 net
+Return value: 1
+
+Adding (<3,"<3 The key will be a heart")...
+After set_insert: 27 malloc, 0 free, 0 free(NULL), 27 net
+Return value: 1
+
+Adding (," ")...
+After set_insert: 29 malloc, 0 free, 0 free(NULL), 29 net
+Return value: 1
+
+Adding (Megan,"Megan Lu")...
+After set_insert: 31 malloc, 0 free, 0 free(NULL), 31 net
+Return value: 1
+
+Adding (,"")...
+Return value: 0
+
+Adding (Final,"Final line to be added")...
+After set_insert: 33 malloc, 0 free, 0 free(NULL), 33 net
+Return value: 1
+
+Adding (unique key,"Final line to be added")...
+After set_insert: 35 malloc, 0 free, 0 free(NULL), 35 net
+Return value: 1
+
+The set (before set_iterate):
+{(unique key,"Final line to be added"),(Final,"Final line to be added"),(Megan,"Megan Lu"),(," "),(<3,"<3 The key will be a heart"),(:),":) The key will be a smiley face"),(?,"? The key will be a question mark"),(!,"! The key will be an exclamation mark"),(1,"1 2 3"),(Hello,"Hello world"),(1234567890,"1234567890"),(Another,"Another unique line"),(Unique,"Unique line"),(One,"One"),(One_word_line_key_will_be_the_same_as_the_item,"One_word_line_key_will_be_the_same_as_the_item"),(Line,"Line 1. This line will be added"),(key,"line"),}
+
+Count (should be less than or equal to 20): 17
+
+The set (after set_iterate):
+{(unique key,"Final line to be added"),(Final,"Final line to be added"),(Megan,"Megan Lu"),(," "),(<3,"<3 The key will be a heart"),(:),":) The key will be a smiley face"),(?,"? The key will be a question mark"),(!,"! The key will be an exclamation mark"),(1,"1 2 3"),(Hello,"Hello world"),(1234567890,"1234567890"),(Another,"Another unique line"),(Unique,"Unique line"),(One,"One"),(One_word_line_key_will_be_the_same_as_the_item,"One_word_line_key_will_be_the_same_as_the_item"),(Line,"Line 1. This line will be added"),(key,"line"),}
+
+****************************************
+
+Testing set_find...
+
+Finding in null set...
+(key,item): (key,(null))
+
+Finding null key...
+(key,item): ((null),(null))
+
+Finding "unique key" key...
+(key,item): (unique key,"Final line to be added")
+
+Finding "key" key...
+(key,item): (key,"line")
+
+Finding "Hello" key...
+(key,item): (Hello,"Hello world")
+
+Count (should be still 17): 17
+
+The set (after set_find):
+{(unique key,"Final line to be added"),(Final,"Final line to be added"),(Megan,"Megan Lu"),(," "),(<3,"<3 The key will be a heart"),(:),":) The key will be a smiley face"),(?,"? The key will be a question mark"),(!,"! The key will be an exclamation mark"),(1,"1 2 3"),(Hello,"Hello world"),(1234567890,"1234567890"),(Another,"Another unique line"),(Unique,"Unique line"),(One,"One"),(One_word_line_key_will_be_the_same_as_the_item,"One_word_line_key_will_be_the_same_as_the_item"),(Line,"Line 1. This line will be added"),(key,"line"),}
+
+Finding "not in set" key...
+(key,item): (not in set,(null))
+
+****************************************
+
+Testing set_print with null parameters...
+
+Printing null set...
+(null)
+
+Printing to null fp...
+
+
+Printing with null itemprint function...
+{}
+
+****************************************
+
+Testing set_iterate...
+
+Iterating over null set to count items...
+0
+
+Iterating with null itemfunc...
+
+Iterating with itemfunc to capitalize first character in item...
+The set (before set_iterate):
+{(unique key,"Final line to be added"),(Final,"Final line to be added"),(Megan,"Megan Lu"),(," "),(<3,"<3 The key will be a heart"),(:),":) The key will be a smiley face"),(?,"? The key will be a question mark"),(!,"! The key will be an exclamation mark"),(1,"1 2 3"),(Hello,"Hello world"),(1234567890,"1234567890"),(Another,"Another unique line"),(Unique,"Unique line"),(One,"One"),(One_word_line_key_will_be_the_same_as_the_item,"One_word_line_key_will_be_the_same_as_the_item"),(Line,"Line 1. This line will be added"),(key,"line"),}
+The set (after set_iterate):
+{(unique key,"Final line to be added"),(Final,"Final line to be added"),(Megan,"Megan Lu"),(," "),(<3,"<3 The key will be a heart"),(:),":) The key will be a smiley face"),(?,"? The key will be a question mark"),(!,"! The key will be an exclamation mark"),(1,"1 2 3"),(Hello,"Hello world"),(1234567890,"1234567890"),(Another,"Another unique line"),(Unique,"Unique line"),(One,"One"),(One_word_line_key_will_be_the_same_as_the_item,"One_word_line_key_will_be_the_same_as_the_item"),(Line,"Line 1. This line will be added"),(key,"Line"),}
+
+****************************************
+
+Testing set_delete...
+
+Deleting null set...
+End of set_delete: 35 malloc, 0 free, 0 free(NULL), 35 net
+
+Deleting set with (key,item) pairs...
+End of set_delete: 35 malloc, 35 free, 0 free(NULL), 0 net
+After set_new: 36 malloc, 35 free, 0 free(NULL), 1 net
+
+Deleting with null itemdelete function...
+End of set_delete: 36 malloc, 36 free, 0 free(NULL), 0 net
+After set_new: 37 malloc, 36 free, 0 free(NULL), 1 net
+
+Deleting empty set...
+End of set_delete: 37 malloc, 37 free, 0 free(NULL), 0 net
+
+****************************************
