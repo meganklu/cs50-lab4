@@ -150,7 +150,7 @@ countersnode_find(counters_t* ctrs, const int key)
 		current != NULL; 
 		current = current->next) {
 		// Return the node if the key of current matches the search key
-		if (current->key != NULL && key == current->key) {
+		if (key == current->key) {
 			return current;
 		}
 	}

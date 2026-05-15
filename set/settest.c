@@ -5,7 +5,7 @@
  *
  * This program is a "unit test" for the set module.
  *
- * CS50, April 2019, 2021
+ * Megan Lu, COSC050, 26S
  */
 
 #include <stdio.h>
@@ -144,7 +144,7 @@ main(const int argc, const char* argv[])
     // `set_iterate` test: Multiple (key,item) pairs in set and valid function
     setCount = testIterateCount(set, lineCount);
     
-    // `set_print` test: Multiple (key,item) pairs in setv
+    // `set_print` test: Multiple (key,item) pairs in set
     testPrint(set);
 
     /* **************************************** */
@@ -445,7 +445,7 @@ lineDelete(void* item)
     }
 }
 
-/**************** pairCount ****************/
+/**************** lineEdit ****************/
 /* itemfunc function to capitalize the first character in the line
  * (item) using set_iterate.
  * 
@@ -471,7 +471,7 @@ lineEdit(void* arg, const char* key, void* item)
     }
 }
 
-/**************** pairCount ****************/
+/**************** lineEmpty ****************/
 /* itemfunc function that is empty.
  * 
  * We guarantee:
