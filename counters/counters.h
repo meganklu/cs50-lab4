@@ -23,7 +23,7 @@ typedef struct counters counters_t;  // opaque to users of the module
 
 /**************** functions ****************/
 
-/**************** FUNCTION ****************/
+/**************** counters_new ****************/
 /* Create a new (empty) counter structure.
  *
  * We return:
@@ -58,7 +58,7 @@ int counters_add(counters_t* ctrs, const int key);
  * Caller provides:
  *   valid pointer to counterset, and key(must be >= 0)
  * We return:
- *   current value of counter associte with the given key, if present,
+ *   current value of counter associated with the given key, if present,
  *   0 if ctrs is NULL or if key is not found.   
  * Note:
  *   counterset is unchanged as a result of this call.
@@ -91,7 +91,7 @@ bool counters_set(counters_t* ctrs, const int key, const int count);
  * We print:
  *   Nothing if NULL fp. 
  *   "(null)" if NULL ctrs.
- *   otherwise, comma=separated list of key=counter pairs, all in {brackets}.
+ *   otherwise, comma-separated list of key=counter pairs, all in {brackets}.
  */
 void counters_print(counters_t* ctrs, FILE* fp);
 

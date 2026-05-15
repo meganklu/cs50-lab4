@@ -93,7 +93,7 @@ set_insert(set_t* set, const char* key, void* item)
 }
 
 /**************** setnode_new ****************/
-/* Allocate and initialize a setnode
+/* Allocate and initialize a setnode.
  *
  * Caller provides:
  *   A valid key string and item (pointer).
@@ -103,7 +103,9 @@ set_insert(set_t* set, const char* key, void* item)
  *   The setnode contains to (key,item) pair
  *   and its next points to NULL.
  * Caller is responsible for:
- *   later calling set_delete() to free the pointers memory.
+ *   later calling set_delete() to free the pointer's memory.
+ * Note:
+ *   The function does not validate the value of key or item.
  */
 static setnode_t*  // not visible outside this file
 setnode_new(const char* key, void* item)
