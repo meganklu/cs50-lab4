@@ -1,3 +1,8 @@
+gcc -Wall -pedantic -std=c11 -ggdb -DMEMTEST -I../lib   -c -o settest.o settest.c
+gcc -Wall -pedantic -std=c11 -ggdb -DMEMTEST -I../lib   -c -o set.o set.c
+gcc -Wall -pedantic -std=c11 -ggdb -DMEMTEST -I../lib   -c -o ../lib/file.o ../lib/file.c
+gcc -Wall -pedantic -std=c11 -ggdb -DMEMTEST -I../lib   -c -o ../lib/mem.o ../lib/mem.c
+gcc -Wall -pedantic -std=c11 -ggdb -DMEMTEST -I../lib settest.o set.o ../lib/file.o ../lib/mem.o  -o settest
 ./settest < test.txt
 **************** set test cases ****************
 

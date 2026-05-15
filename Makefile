@@ -5,7 +5,7 @@
 
 # uncomment the following to turn on verbose memory logging
 # (and run `make clean; make` whenever you change this)
-# TESTING=-DMEMTEST
+TESTING=-DMEMTEST
 
 # Our Make program and its flags
 MAKE = make TESTING=$(TESTING)

@@ -1,3 +1,7 @@
+gcc -Wall -pedantic -std=c11 -ggdb -DMEMTEST -I../lib -I../set   -c -o hashtabletest.o hashtabletest.c
+gcc -Wall -pedantic -std=c11 -ggdb -DMEMTEST -I../lib -I../set   -c -o hashtable.o hashtable.c
+gcc -Wall -pedantic -std=c11 -ggdb -DMEMTEST -I../lib -I../set   -c -o hash.o hash.c
+gcc -Wall -pedantic -std=c11 -ggdb -DMEMTEST -I../lib -I../set hashtabletest.o hashtable.o hash.o ../set/set.o ../lib/file.o ../lib/mem.o  -o hashtabletest
 ./hashtabletest < test.txt
 hashtable_new failed for "ht1"
 hashtable_new failed for "ht1"
@@ -8,11 +12,8 @@ Creating hashtable "ht1" with 0 slots with hashtable_new...
 Return value: 0
 Creating hashtable "ht1" with -5 slots with hashtable_new...
 Return value: 0
-Creating hashtable "ht1" with 1 slots with hashtable_new...
-After hashtable_new: 2 malloc, 0 free, 0 free(NULL), 2 net
-Return value: 1
 Creating hashtable "ht1" with 10 slots with hashtable_new...
-After hashtable_new: 4 malloc, 0 free, 0 free(NULL), 4 net
+After hashtable_new: 2 malloc, 0 free, 0 free(NULL), 2 net
 Count of "ht1": 0 (expected count: 0)
 Printing the hashtable "ht1" with hashtable_print...
 slot 0: {}
@@ -27,7 +28,7 @@ slot 8: {}
 slot 9: {}
 
 Creating hashtable "ht2" with 100 slots with hashtable_new...
-After hashtable_new: 6 malloc, 0 free, 0 free(NULL), 6 net
+After hashtable_new: 4 malloc, 0 free, 0 free(NULL), 4 net
 
 ****************************************
 
@@ -42,14 +43,14 @@ Count of "ht1": 0 (expected count: 0)
 
 Testing hashtable_insert (non-null parameters)...
 Inserting (key,"line") to hashtable "ht1" with hashtable_insert...
-After set_new: 7 malloc, 0 free, 0 free(NULL), 7 net
-After set_insert: 9 malloc, 0 free, 0 free(NULL), 9 net
-After hashtable_insert: 9 malloc, 0 free, 0 free(NULL), 9 net
+After set_new: 5 malloc, 0 free, 0 free(NULL), 5 net
+After set_insert: 7 malloc, 0 free, 0 free(NULL), 7 net
+After hashtable_insert: 7 malloc, 0 free, 0 free(NULL), 7 net
 Return value: 1
 Inserting (key,"line") to hashtable "ht2" with hashtable_insert...
-After set_new: 10 malloc, 0 free, 0 free(NULL), 10 net
-After set_insert: 12 malloc, 0 free, 0 free(NULL), 12 net
-After hashtable_insert: 12 malloc, 0 free, 0 free(NULL), 12 net
+After set_new: 8 malloc, 0 free, 0 free(NULL), 8 net
+After set_insert: 10 malloc, 0 free, 0 free(NULL), 10 net
+After hashtable_insert: 10 malloc, 0 free, 0 free(NULL), 10 net
 Return value: 1
 Count of "ht1": 1 (expected count: 1)
 Count of "ht2": 1 (expected count: 1)
@@ -168,251 +169,251 @@ slot 98: {}
 slot 99: {}
 
 Inserting (Line,"Line 1. This line will be added") to hashtable "ht1" with hashtable_insert...
-After set_new: 13 malloc, 0 free, 0 free(NULL), 13 net
-After set_insert: 15 malloc, 0 free, 0 free(NULL), 15 net
-After hashtable_insert: 15 malloc, 0 free, 0 free(NULL), 15 net
+After set_new: 11 malloc, 0 free, 0 free(NULL), 11 net
+After set_insert: 13 malloc, 0 free, 0 free(NULL), 13 net
+After hashtable_insert: 13 malloc, 0 free, 0 free(NULL), 13 net
 Return value: 1
 Inserting (Line,"Line 1. This line will be added") to hashtable "ht2" with hashtable_insert...
-After set_new: 16 malloc, 0 free, 0 free(NULL), 16 net
-After set_insert: 18 malloc, 0 free, 0 free(NULL), 18 net
-After hashtable_insert: 18 malloc, 0 free, 0 free(NULL), 18 net
+After set_new: 14 malloc, 0 free, 0 free(NULL), 14 net
+After set_insert: 16 malloc, 0 free, 0 free(NULL), 16 net
+After hashtable_insert: 16 malloc, 0 free, 0 free(NULL), 16 net
 Return value: 1
 Inserting (Line,"Line 2. This line will not be added") to hashtable "ht1" with hashtable_insert...
 Return value: 0
 Inserting (Line,"Line 2. This line will not be added") to hashtable "ht2" with hashtable_insert...
 Return value: 0
 Inserting (One_word_line_key_will_be_the_same_as_the_item,"One_word_line_key_will_be_the_same_as_the_item") to hashtable "ht1" with hashtable_insert...
-After set_new: 19 malloc, 0 free, 0 free(NULL), 19 net
-After set_insert: 21 malloc, 0 free, 0 free(NULL), 21 net
-After hashtable_insert: 21 malloc, 0 free, 0 free(NULL), 21 net
+After set_new: 17 malloc, 0 free, 0 free(NULL), 17 net
+After set_insert: 19 malloc, 0 free, 0 free(NULL), 19 net
+After hashtable_insert: 19 malloc, 0 free, 0 free(NULL), 19 net
 Return value: 1
 Inserting (One_word_line_key_will_be_the_same_as_the_item,"One_word_line_key_will_be_the_same_as_the_item") to hashtable "ht2" with hashtable_insert...
-After set_new: 22 malloc, 0 free, 0 free(NULL), 22 net
+After set_new: 20 malloc, 0 free, 0 free(NULL), 20 net
+After set_insert: 22 malloc, 0 free, 0 free(NULL), 22 net
+After hashtable_insert: 22 malloc, 0 free, 0 free(NULL), 22 net
+Return value: 1
+Inserting (One,"One") to hashtable "ht1" with hashtable_insert...
 After set_insert: 24 malloc, 0 free, 0 free(NULL), 24 net
 After hashtable_insert: 24 malloc, 0 free, 0 free(NULL), 24 net
 Return value: 1
-Inserting (One,"One") to hashtable "ht1" with hashtable_insert...
-After set_insert: 26 malloc, 0 free, 0 free(NULL), 26 net
-After hashtable_insert: 26 malloc, 0 free, 0 free(NULL), 26 net
-Return value: 1
 Inserting (One,"One") to hashtable "ht2" with hashtable_insert...
-After set_new: 27 malloc, 0 free, 0 free(NULL), 27 net
-After set_insert: 29 malloc, 0 free, 0 free(NULL), 29 net
-After hashtable_insert: 29 malloc, 0 free, 0 free(NULL), 29 net
+After set_new: 25 malloc, 0 free, 0 free(NULL), 25 net
+After set_insert: 27 malloc, 0 free, 0 free(NULL), 27 net
+After hashtable_insert: 27 malloc, 0 free, 0 free(NULL), 27 net
 Return value: 1
 Inserting (Line,"Line that will also be a duplicate") to hashtable "ht1" with hashtable_insert...
 Return value: 0
 Inserting (Line,"Line that will also be a duplicate") to hashtable "ht2" with hashtable_insert...
 Return value: 0
 Inserting (Unique,"Unique line") to hashtable "ht1" with hashtable_insert...
-After set_new: 30 malloc, 0 free, 0 free(NULL), 30 net
-After set_insert: 32 malloc, 0 free, 0 free(NULL), 32 net
-After hashtable_insert: 32 malloc, 0 free, 0 free(NULL), 32 net
+After set_new: 28 malloc, 0 free, 0 free(NULL), 28 net
+After set_insert: 30 malloc, 0 free, 0 free(NULL), 30 net
+After hashtable_insert: 30 malloc, 0 free, 0 free(NULL), 30 net
 Return value: 1
 Inserting (Unique,"Unique line") to hashtable "ht2" with hashtable_insert...
-After set_new: 33 malloc, 0 free, 0 free(NULL), 33 net
-After set_insert: 35 malloc, 0 free, 0 free(NULL), 35 net
-After hashtable_insert: 35 malloc, 0 free, 0 free(NULL), 35 net
+After set_new: 31 malloc, 0 free, 0 free(NULL), 31 net
+After set_insert: 33 malloc, 0 free, 0 free(NULL), 33 net
+After hashtable_insert: 33 malloc, 0 free, 0 free(NULL), 33 net
 Return value: 1
 Inserting (Another,"Another unique line") to hashtable "ht1" with hashtable_insert...
-After set_new: 36 malloc, 0 free, 0 free(NULL), 36 net
-After set_insert: 38 malloc, 0 free, 0 free(NULL), 38 net
-After hashtable_insert: 38 malloc, 0 free, 0 free(NULL), 38 net
+After set_new: 34 malloc, 0 free, 0 free(NULL), 34 net
+After set_insert: 36 malloc, 0 free, 0 free(NULL), 36 net
+After hashtable_insert: 36 malloc, 0 free, 0 free(NULL), 36 net
 Return value: 1
 Inserting (Another,"Another unique line") to hashtable "ht2" with hashtable_insert...
-After set_new: 39 malloc, 0 free, 0 free(NULL), 39 net
+After set_new: 37 malloc, 0 free, 0 free(NULL), 37 net
+After set_insert: 39 malloc, 0 free, 0 free(NULL), 39 net
+After hashtable_insert: 39 malloc, 0 free, 0 free(NULL), 39 net
+Return value: 1
+Inserting (another,"another one but lowercase a") to hashtable "ht1" with hashtable_insert...
 After set_insert: 41 malloc, 0 free, 0 free(NULL), 41 net
 After hashtable_insert: 41 malloc, 0 free, 0 free(NULL), 41 net
 Return value: 1
-Inserting (another,"another one but lowercase a") to hashtable "ht1" with hashtable_insert...
-After set_insert: 43 malloc, 0 free, 0 free(NULL), 43 net
-After hashtable_insert: 43 malloc, 0 free, 0 free(NULL), 43 net
-Return value: 1
 Inserting (another,"another one but lowercase a") to hashtable "ht2" with hashtable_insert...
-After set_new: 44 malloc, 0 free, 0 free(NULL), 44 net
-After set_insert: 46 malloc, 0 free, 0 free(NULL), 46 net
-After hashtable_insert: 46 malloc, 0 free, 0 free(NULL), 46 net
+After set_new: 42 malloc, 0 free, 0 free(NULL), 42 net
+After set_insert: 44 malloc, 0 free, 0 free(NULL), 44 net
+After hashtable_insert: 44 malloc, 0 free, 0 free(NULL), 44 net
 Return value: 1
 Inserting (1234567890,"1234567890") to hashtable "ht1" with hashtable_insert...
-After set_new: 47 malloc, 0 free, 0 free(NULL), 47 net
-After set_insert: 49 malloc, 0 free, 0 free(NULL), 49 net
-After hashtable_insert: 49 malloc, 0 free, 0 free(NULL), 49 net
+After set_new: 45 malloc, 0 free, 0 free(NULL), 45 net
+After set_insert: 47 malloc, 0 free, 0 free(NULL), 47 net
+After hashtable_insert: 47 malloc, 0 free, 0 free(NULL), 47 net
 Return value: 1
 Inserting (1234567890,"1234567890") to hashtable "ht2" with hashtable_insert...
-After set_new: 50 malloc, 0 free, 0 free(NULL), 50 net
-After set_insert: 52 malloc, 0 free, 0 free(NULL), 52 net
-After hashtable_insert: 52 malloc, 0 free, 0 free(NULL), 52 net
+After set_new: 48 malloc, 0 free, 0 free(NULL), 48 net
+After set_insert: 50 malloc, 0 free, 0 free(NULL), 50 net
+After hashtable_insert: 50 malloc, 0 free, 0 free(NULL), 50 net
 Return value: 1
 Inserting (Hello,"Hello world") to hashtable "ht1" with hashtable_insert...
-After set_new: 53 malloc, 0 free, 0 free(NULL), 53 net
-After set_insert: 55 malloc, 0 free, 0 free(NULL), 55 net
-After hashtable_insert: 55 malloc, 0 free, 0 free(NULL), 55 net
+After set_new: 51 malloc, 0 free, 0 free(NULL), 51 net
+After set_insert: 53 malloc, 0 free, 0 free(NULL), 53 net
+After hashtable_insert: 53 malloc, 0 free, 0 free(NULL), 53 net
 Return value: 1
 Inserting (Hello,"Hello world") to hashtable "ht2" with hashtable_insert...
-After set_new: 56 malloc, 0 free, 0 free(NULL), 56 net
+After set_new: 54 malloc, 0 free, 0 free(NULL), 54 net
+After set_insert: 56 malloc, 0 free, 0 free(NULL), 56 net
+After hashtable_insert: 56 malloc, 0 free, 0 free(NULL), 56 net
+Return value: 1
+Inserting (1,"1 2 3") to hashtable "ht1" with hashtable_insert...
 After set_insert: 58 malloc, 0 free, 0 free(NULL), 58 net
 After hashtable_insert: 58 malloc, 0 free, 0 free(NULL), 58 net
 Return value: 1
-Inserting (1,"1 2 3") to hashtable "ht1" with hashtable_insert...
-After set_insert: 60 malloc, 0 free, 0 free(NULL), 60 net
-After hashtable_insert: 60 malloc, 0 free, 0 free(NULL), 60 net
-Return value: 1
 Inserting (1,"1 2 3") to hashtable "ht2" with hashtable_insert...
-After set_new: 61 malloc, 0 free, 0 free(NULL), 61 net
+After set_new: 59 malloc, 0 free, 0 free(NULL), 59 net
+After set_insert: 61 malloc, 0 free, 0 free(NULL), 61 net
+After hashtable_insert: 61 malloc, 0 free, 0 free(NULL), 61 net
+Return value: 1
+Inserting (2,"2 4") to hashtable "ht1" with hashtable_insert...
 After set_insert: 63 malloc, 0 free, 0 free(NULL), 63 net
 After hashtable_insert: 63 malloc, 0 free, 0 free(NULL), 63 net
 Return value: 1
-Inserting (2,"2 4") to hashtable "ht1" with hashtable_insert...
-After set_insert: 65 malloc, 0 free, 0 free(NULL), 65 net
-After hashtable_insert: 65 malloc, 0 free, 0 free(NULL), 65 net
-Return value: 1
 Inserting (2,"2 4") to hashtable "ht2" with hashtable_insert...
-After set_new: 66 malloc, 0 free, 0 free(NULL), 66 net
+After set_new: 64 malloc, 0 free, 0 free(NULL), 64 net
+After set_insert: 66 malloc, 0 free, 0 free(NULL), 66 net
+After hashtable_insert: 66 malloc, 0 free, 0 free(NULL), 66 net
+Return value: 1
+Inserting (64,"64") to hashtable "ht1" with hashtable_insert...
 After set_insert: 68 malloc, 0 free, 0 free(NULL), 68 net
 After hashtable_insert: 68 malloc, 0 free, 0 free(NULL), 68 net
 Return value: 1
-Inserting (64,"64") to hashtable "ht1" with hashtable_insert...
-After set_insert: 70 malloc, 0 free, 0 free(NULL), 70 net
-After hashtable_insert: 70 malloc, 0 free, 0 free(NULL), 70 net
-Return value: 1
 Inserting (64,"64") to hashtable "ht2" with hashtable_insert...
-After set_new: 71 malloc, 0 free, 0 free(NULL), 71 net
-After set_insert: 73 malloc, 0 free, 0 free(NULL), 73 net
-After hashtable_insert: 73 malloc, 0 free, 0 free(NULL), 73 net
+After set_new: 69 malloc, 0 free, 0 free(NULL), 69 net
+After set_insert: 71 malloc, 0 free, 0 free(NULL), 71 net
+After hashtable_insert: 71 malloc, 0 free, 0 free(NULL), 71 net
 Return value: 1
 Inserting (hash,"hash for 4 letter word") to hashtable "ht1" with hashtable_insert...
-After set_new: 74 malloc, 0 free, 0 free(NULL), 74 net
-After set_insert: 76 malloc, 0 free, 0 free(NULL), 76 net
-After hashtable_insert: 76 malloc, 0 free, 0 free(NULL), 76 net
+After set_new: 72 malloc, 0 free, 0 free(NULL), 72 net
+After set_insert: 74 malloc, 0 free, 0 free(NULL), 74 net
+After hashtable_insert: 74 malloc, 0 free, 0 free(NULL), 74 net
 Return value: 1
 Inserting (hash,"hash for 4 letter word") to hashtable "ht2" with hashtable_insert...
-After set_new: 77 malloc, 0 free, 0 free(NULL), 77 net
+After set_new: 75 malloc, 0 free, 0 free(NULL), 75 net
+After set_insert: 77 malloc, 0 free, 0 free(NULL), 77 net
+After hashtable_insert: 77 malloc, 0 free, 0 free(NULL), 77 net
+Return value: 1
+Inserting (also,"also a hash for a 4 letter word?") to hashtable "ht1" with hashtable_insert...
 After set_insert: 79 malloc, 0 free, 0 free(NULL), 79 net
 After hashtable_insert: 79 malloc, 0 free, 0 free(NULL), 79 net
 Return value: 1
-Inserting (also,"also a hash for a 4 letter word?") to hashtable "ht1" with hashtable_insert...
+Inserting (also,"also a hash for a 4 letter word?") to hashtable "ht2" with hashtable_insert...
 After set_insert: 81 malloc, 0 free, 0 free(NULL), 81 net
 After hashtable_insert: 81 malloc, 0 free, 0 free(NULL), 81 net
 Return value: 1
-Inserting (also,"also a hash for a 4 letter word?") to hashtable "ht2" with hashtable_insert...
-After set_insert: 83 malloc, 0 free, 0 free(NULL), 83 net
-After hashtable_insert: 83 malloc, 0 free, 0 free(NULL), 83 net
-Return value: 1
 Inserting (!,"! The key will be an exclamation mark") to hashtable "ht1" with hashtable_insert...
-After set_new: 84 malloc, 0 free, 0 free(NULL), 84 net
-After set_insert: 86 malloc, 0 free, 0 free(NULL), 86 net
-After hashtable_insert: 86 malloc, 0 free, 0 free(NULL), 86 net
+After set_new: 82 malloc, 0 free, 0 free(NULL), 82 net
+After set_insert: 84 malloc, 0 free, 0 free(NULL), 84 net
+After hashtable_insert: 84 malloc, 0 free, 0 free(NULL), 84 net
 Return value: 1
 Inserting (!,"! The key will be an exclamation mark") to hashtable "ht2" with hashtable_insert...
-After set_new: 87 malloc, 0 free, 0 free(NULL), 87 net
+After set_new: 85 malloc, 0 free, 0 free(NULL), 85 net
+After set_insert: 87 malloc, 0 free, 0 free(NULL), 87 net
+After hashtable_insert: 87 malloc, 0 free, 0 free(NULL), 87 net
+Return value: 1
+Inserting (?,"? The key will be a question mark") to hashtable "ht1" with hashtable_insert...
 After set_insert: 89 malloc, 0 free, 0 free(NULL), 89 net
 After hashtable_insert: 89 malloc, 0 free, 0 free(NULL), 89 net
 Return value: 1
-Inserting (?,"? The key will be a question mark") to hashtable "ht1" with hashtable_insert...
-After set_insert: 91 malloc, 0 free, 0 free(NULL), 91 net
-After hashtable_insert: 91 malloc, 0 free, 0 free(NULL), 91 net
-Return value: 1
 Inserting (?,"? The key will be a question mark") to hashtable "ht2" with hashtable_insert...
-After set_new: 92 malloc, 0 free, 0 free(NULL), 92 net
+After set_new: 90 malloc, 0 free, 0 free(NULL), 90 net
+After set_insert: 92 malloc, 0 free, 0 free(NULL), 92 net
+After hashtable_insert: 92 malloc, 0 free, 0 free(NULL), 92 net
+Return value: 1
+Inserting (:),":) The key will be a smiley face") to hashtable "ht1" with hashtable_insert...
 After set_insert: 94 malloc, 0 free, 0 free(NULL), 94 net
 After hashtable_insert: 94 malloc, 0 free, 0 free(NULL), 94 net
 Return value: 1
-Inserting (:),":) The key will be a smiley face") to hashtable "ht1" with hashtable_insert...
-After set_insert: 96 malloc, 0 free, 0 free(NULL), 96 net
-After hashtable_insert: 96 malloc, 0 free, 0 free(NULL), 96 net
-Return value: 1
 Inserting (:),":) The key will be a smiley face") to hashtable "ht2" with hashtable_insert...
-After set_new: 97 malloc, 0 free, 0 free(NULL), 97 net
+After set_new: 95 malloc, 0 free, 0 free(NULL), 95 net
+After set_insert: 97 malloc, 0 free, 0 free(NULL), 97 net
+After hashtable_insert: 97 malloc, 0 free, 0 free(NULL), 97 net
+Return value: 1
+Inserting (<3,"<3 The key will be a heart") to hashtable "ht1" with hashtable_insert...
 After set_insert: 99 malloc, 0 free, 0 free(NULL), 99 net
 After hashtable_insert: 99 malloc, 0 free, 0 free(NULL), 99 net
 Return value: 1
-Inserting (<3,"<3 The key will be a heart") to hashtable "ht1" with hashtable_insert...
-After set_insert: 101 malloc, 0 free, 0 free(NULL), 101 net
-After hashtable_insert: 101 malloc, 0 free, 0 free(NULL), 101 net
-Return value: 1
 Inserting (<3,"<3 The key will be a heart") to hashtable "ht2" with hashtable_insert...
-After set_new: 102 malloc, 0 free, 0 free(NULL), 102 net
+After set_new: 100 malloc, 0 free, 0 free(NULL), 100 net
+After set_insert: 102 malloc, 0 free, 0 free(NULL), 102 net
+After hashtable_insert: 102 malloc, 0 free, 0 free(NULL), 102 net
+Return value: 1
+Inserting (," ") to hashtable "ht1" with hashtable_insert...
 After set_insert: 104 malloc, 0 free, 0 free(NULL), 104 net
 After hashtable_insert: 104 malloc, 0 free, 0 free(NULL), 104 net
 Return value: 1
-Inserting (," ") to hashtable "ht1" with hashtable_insert...
-After set_insert: 106 malloc, 0 free, 0 free(NULL), 106 net
-After hashtable_insert: 106 malloc, 0 free, 0 free(NULL), 106 net
-Return value: 1
 Inserting (," ") to hashtable "ht2" with hashtable_insert...
-After set_new: 107 malloc, 0 free, 0 free(NULL), 107 net
+After set_new: 105 malloc, 0 free, 0 free(NULL), 105 net
+After set_insert: 107 malloc, 0 free, 0 free(NULL), 107 net
+After hashtable_insert: 107 malloc, 0 free, 0 free(NULL), 107 net
+Return value: 1
+Inserting (Megan,"Megan Lu") to hashtable "ht1" with hashtable_insert...
 After set_insert: 109 malloc, 0 free, 0 free(NULL), 109 net
 After hashtable_insert: 109 malloc, 0 free, 0 free(NULL), 109 net
 Return value: 1
-Inserting (Megan,"Megan Lu") to hashtable "ht1" with hashtable_insert...
-After set_insert: 111 malloc, 0 free, 0 free(NULL), 111 net
-After hashtable_insert: 111 malloc, 0 free, 0 free(NULL), 111 net
-Return value: 1
 Inserting (Megan,"Megan Lu") to hashtable "ht2" with hashtable_insert...
-After set_new: 112 malloc, 0 free, 0 free(NULL), 112 net
+After set_new: 110 malloc, 0 free, 0 free(NULL), 110 net
+After set_insert: 112 malloc, 0 free, 0 free(NULL), 112 net
+After hashtable_insert: 112 malloc, 0 free, 0 free(NULL), 112 net
+Return value: 1
+Inserting (HI!," HI!") to hashtable "ht1" with hashtable_insert...
 After set_insert: 114 malloc, 0 free, 0 free(NULL), 114 net
 After hashtable_insert: 114 malloc, 0 free, 0 free(NULL), 114 net
 Return value: 1
-Inserting (HI!," HI!") to hashtable "ht1" with hashtable_insert...
-After set_insert: 116 malloc, 0 free, 0 free(NULL), 116 net
-After hashtable_insert: 116 malloc, 0 free, 0 free(NULL), 116 net
-Return value: 1
 Inserting (HI!," HI!") to hashtable "ht2" with hashtable_insert...
-After set_new: 117 malloc, 0 free, 0 free(NULL), 117 net
+After set_new: 115 malloc, 0 free, 0 free(NULL), 115 net
+After set_insert: 117 malloc, 0 free, 0 free(NULL), 117 net
+After hashtable_insert: 117 malloc, 0 free, 0 free(NULL), 117 net
+Return value: 1
+Inserting (more,"more words") to hashtable "ht1" with hashtable_insert...
 After set_insert: 119 malloc, 0 free, 0 free(NULL), 119 net
 After hashtable_insert: 119 malloc, 0 free, 0 free(NULL), 119 net
 Return value: 1
-Inserting (more,"more words") to hashtable "ht1" with hashtable_insert...
-After set_insert: 121 malloc, 0 free, 0 free(NULL), 121 net
-After hashtable_insert: 121 malloc, 0 free, 0 free(NULL), 121 net
-Return value: 1
 Inserting (more,"more words") to hashtable "ht2" with hashtable_insert...
-After set_new: 122 malloc, 0 free, 0 free(NULL), 122 net
-After set_insert: 124 malloc, 0 free, 0 free(NULL), 124 net
-After hashtable_insert: 124 malloc, 0 free, 0 free(NULL), 124 net
+After set_new: 120 malloc, 0 free, 0 free(NULL), 120 net
+After set_insert: 122 malloc, 0 free, 0 free(NULL), 122 net
+After hashtable_insert: 122 malloc, 0 free, 0 free(NULL), 122 net
 Return value: 1
 Inserting (stdin,"stdin") to hashtable "ht1" with hashtable_insert...
-After set_new: 125 malloc, 0 free, 0 free(NULL), 125 net
-After set_insert: 127 malloc, 0 free, 0 free(NULL), 127 net
-After hashtable_insert: 127 malloc, 0 free, 0 free(NULL), 127 net
+After set_new: 123 malloc, 0 free, 0 free(NULL), 123 net
+After set_insert: 125 malloc, 0 free, 0 free(NULL), 125 net
+After hashtable_insert: 125 malloc, 0 free, 0 free(NULL), 125 net
 Return value: 1
 Inserting (stdin,"stdin") to hashtable "ht2" with hashtable_insert...
-After set_new: 128 malloc, 0 free, 0 free(NULL), 128 net
+After set_new: 126 malloc, 0 free, 0 free(NULL), 126 net
+After set_insert: 128 malloc, 0 free, 0 free(NULL), 128 net
+After hashtable_insert: 128 malloc, 0 free, 0 free(NULL), 128 net
+Return value: 1
+Inserting (Motion,"Motion Sickness") to hashtable "ht1" with hashtable_insert...
 After set_insert: 130 malloc, 0 free, 0 free(NULL), 130 net
 After hashtable_insert: 130 malloc, 0 free, 0 free(NULL), 130 net
 Return value: 1
-Inserting (Motion,"Motion Sickness") to hashtable "ht1" with hashtable_insert...
-After set_insert: 132 malloc, 0 free, 0 free(NULL), 132 net
-After hashtable_insert: 132 malloc, 0 free, 0 free(NULL), 132 net
-Return value: 1
 Inserting (Motion,"Motion Sickness") to hashtable "ht2" with hashtable_insert...
-After set_new: 133 malloc, 0 free, 0 free(NULL), 133 net
+After set_new: 131 malloc, 0 free, 0 free(NULL), 131 net
+After set_insert: 133 malloc, 0 free, 0 free(NULL), 133 net
+After hashtable_insert: 133 malloc, 0 free, 0 free(NULL), 133 net
+Return value: 1
+Inserting (by,"by Phoebe Bridgers") to hashtable "ht1" with hashtable_insert...
 After set_insert: 135 malloc, 0 free, 0 free(NULL), 135 net
 After hashtable_insert: 135 malloc, 0 free, 0 free(NULL), 135 net
 Return value: 1
-Inserting (by,"by Phoebe Bridgers") to hashtable "ht1" with hashtable_insert...
+Inserting (by,"by Phoebe Bridgers") to hashtable "ht2" with hashtable_insert...
 After set_insert: 137 malloc, 0 free, 0 free(NULL), 137 net
 After hashtable_insert: 137 malloc, 0 free, 0 free(NULL), 137 net
 Return value: 1
-Inserting (by,"by Phoebe Bridgers") to hashtable "ht2" with hashtable_insert...
+Inserting (I,"I hate you for what you did") to hashtable "ht1" with hashtable_insert...
 After set_insert: 139 malloc, 0 free, 0 free(NULL), 139 net
 After hashtable_insert: 139 malloc, 0 free, 0 free(NULL), 139 net
 Return value: 1
-Inserting (I,"I hate you for what you did") to hashtable "ht1" with hashtable_insert...
+Inserting (I,"I hate you for what you did") to hashtable "ht2" with hashtable_insert...
 After set_insert: 141 malloc, 0 free, 0 free(NULL), 141 net
 After hashtable_insert: 141 malloc, 0 free, 0 free(NULL), 141 net
 Return value: 1
-Inserting (I,"I hate you for what you did") to hashtable "ht2" with hashtable_insert...
+Inserting (And,"And I miss you like a little kid") to hashtable "ht1" with hashtable_insert...
 After set_insert: 143 malloc, 0 free, 0 free(NULL), 143 net
 After hashtable_insert: 143 malloc, 0 free, 0 free(NULL), 143 net
 Return value: 1
-Inserting (And,"And I miss you like a little kid") to hashtable "ht1" with hashtable_insert...
+Inserting (And,"And I miss you like a little kid") to hashtable "ht2" with hashtable_insert...
 After set_insert: 145 malloc, 0 free, 0 free(NULL), 145 net
 After hashtable_insert: 145 malloc, 0 free, 0 free(NULL), 145 net
-Return value: 1
-Inserting (And,"And I miss you like a little kid") to hashtable "ht2" with hashtable_insert...
-After set_insert: 147 malloc, 0 free, 0 free(NULL), 147 net
-After hashtable_insert: 147 malloc, 0 free, 0 free(NULL), 147 net
 Return value: 1
 Inserting (I,"I faked it every time, but that's alright") to hashtable "ht1" with hashtable_insert...
 Return value: 0
@@ -423,90 +424,90 @@ Return value: 0
 Inserting (I,"I can hardly feel anything, I hardly feel anything at all") to hashtable "ht2" with hashtable_insert...
 Return value: 0
 Inserting (You,"You gave me fifteen hundred to see your hypnotherapist") to hashtable "ht1" with hashtable_insert...
-After set_insert: 149 malloc, 0 free, 0 free(NULL), 149 net
-After hashtable_insert: 149 malloc, 0 free, 0 free(NULL), 149 net
+After set_insert: 147 malloc, 0 free, 0 free(NULL), 147 net
+After hashtable_insert: 147 malloc, 0 free, 0 free(NULL), 147 net
 Return value: 1
 Inserting (You,"You gave me fifteen hundred to see your hypnotherapist") to hashtable "ht2" with hashtable_insert...
-After set_new: 150 malloc, 0 free, 0 free(NULL), 150 net
-After set_insert: 152 malloc, 0 free, 0 free(NULL), 152 net
-After hashtable_insert: 152 malloc, 0 free, 0 free(NULL), 152 net
+After set_new: 148 malloc, 0 free, 0 free(NULL), 148 net
+After set_insert: 150 malloc, 0 free, 0 free(NULL), 150 net
+After hashtable_insert: 150 malloc, 0 free, 0 free(NULL), 150 net
 Return value: 1
 Inserting (I,"I only went one time, you let it slide") to hashtable "ht1" with hashtable_insert...
 Return value: 0
 Inserting (I,"I only went one time, you let it slide") to hashtable "ht2" with hashtable_insert...
 Return value: 0
 Inserting (Fell,"Fell on hard times a year ago") to hashtable "ht1" with hashtable_insert...
-After set_insert: 154 malloc, 0 free, 0 free(NULL), 154 net
-After hashtable_insert: 154 malloc, 0 free, 0 free(NULL), 154 net
+After set_insert: 152 malloc, 0 free, 0 free(NULL), 152 net
+After hashtable_insert: 152 malloc, 0 free, 0 free(NULL), 152 net
 Return value: 1
 Inserting (Fell,"Fell on hard times a year ago") to hashtable "ht2" with hashtable_insert...
-After set_new: 155 malloc, 0 free, 0 free(NULL), 155 net
+After set_new: 153 malloc, 0 free, 0 free(NULL), 153 net
+After set_insert: 155 malloc, 0 free, 0 free(NULL), 155 net
+After hashtable_insert: 155 malloc, 0 free, 0 free(NULL), 155 net
+Return value: 1
+Inserting (Was,"Was hoping you would let it go and you did") to hashtable "ht1" with hashtable_insert...
 After set_insert: 157 malloc, 0 free, 0 free(NULL), 157 net
 After hashtable_insert: 157 malloc, 0 free, 0 free(NULL), 157 net
 Return value: 1
-Inserting (Was,"Was hoping you would let it go and you did") to hashtable "ht1" with hashtable_insert...
+Inserting (Was,"Was hoping you would let it go and you did") to hashtable "ht2" with hashtable_insert...
 After set_insert: 159 malloc, 0 free, 0 free(NULL), 159 net
 After hashtable_insert: 159 malloc, 0 free, 0 free(NULL), 159 net
-Return value: 1
-Inserting (Was,"Was hoping you would let it go and you did") to hashtable "ht2" with hashtable_insert...
-After set_insert: 161 malloc, 0 free, 0 free(NULL), 161 net
-After hashtable_insert: 161 malloc, 0 free, 0 free(NULL), 161 net
 Return value: 1
 Inserting (I,"I have emotional motion sickness") to hashtable "ht1" with hashtable_insert...
 Return value: 0
 Inserting (I,"I have emotional motion sickness") to hashtable "ht2" with hashtable_insert...
 Return value: 0
 Inserting (Somebody,"Somebody roll the windows down") to hashtable "ht1" with hashtable_insert...
+After set_insert: 161 malloc, 0 free, 0 free(NULL), 161 net
+After hashtable_insert: 161 malloc, 0 free, 0 free(NULL), 161 net
+Return value: 1
+Inserting (Somebody,"Somebody roll the windows down") to hashtable "ht2" with hashtable_insert...
 After set_insert: 163 malloc, 0 free, 0 free(NULL), 163 net
 After hashtable_insert: 163 malloc, 0 free, 0 free(NULL), 163 net
 Return value: 1
-Inserting (Somebody,"Somebody roll the windows down") to hashtable "ht2" with hashtable_insert...
+Inserting (There,"There are no words in the English language") to hashtable "ht1" with hashtable_insert...
 After set_insert: 165 malloc, 0 free, 0 free(NULL), 165 net
 After hashtable_insert: 165 malloc, 0 free, 0 free(NULL), 165 net
 Return value: 1
-Inserting (There,"There are no words in the English language") to hashtable "ht1" with hashtable_insert...
-After set_insert: 167 malloc, 0 free, 0 free(NULL), 167 net
-After hashtable_insert: 167 malloc, 0 free, 0 free(NULL), 167 net
-Return value: 1
 Inserting (There,"There are no words in the English language") to hashtable "ht2" with hashtable_insert...
-After set_new: 168 malloc, 0 free, 0 free(NULL), 168 net
-After set_insert: 170 malloc, 0 free, 0 free(NULL), 170 net
-After hashtable_insert: 170 malloc, 0 free, 0 free(NULL), 170 net
+After set_new: 166 malloc, 0 free, 0 free(NULL), 166 net
+After set_insert: 168 malloc, 0 free, 0 free(NULL), 168 net
+After hashtable_insert: 168 malloc, 0 free, 0 free(NULL), 168 net
 Return value: 1
 Inserting (I,"I could scream to drown you out") to hashtable "ht1" with hashtable_insert...
 Return value: 0
 Inserting (I,"I could scream to drown you out") to hashtable "ht2" with hashtable_insert...
 Return value: 0
 Inserting (I'm,"I'm on the outside lookin' through") to hashtable "ht1" with hashtable_insert...
-After set_insert: 172 malloc, 0 free, 0 free(NULL), 172 net
-After hashtable_insert: 172 malloc, 0 free, 0 free(NULL), 172 net
+After set_insert: 170 malloc, 0 free, 0 free(NULL), 170 net
+After hashtable_insert: 170 malloc, 0 free, 0 free(NULL), 170 net
 Return value: 1
 Inserting (I'm,"I'm on the outside lookin' through") to hashtable "ht2" with hashtable_insert...
-After set_new: 173 malloc, 0 free, 0 free(NULL), 173 net
+After set_new: 171 malloc, 0 free, 0 free(NULL), 171 net
+After set_insert: 173 malloc, 0 free, 0 free(NULL), 173 net
+After hashtable_insert: 173 malloc, 0 free, 0 free(NULL), 173 net
+Return value: 1
+Inserting (You're,"You're throwin' rocks around your room") to hashtable "ht1" with hashtable_insert...
 After set_insert: 175 malloc, 0 free, 0 free(NULL), 175 net
 After hashtable_insert: 175 malloc, 0 free, 0 free(NULL), 175 net
 Return value: 1
-Inserting (You're,"You're throwin' rocks around your room") to hashtable "ht1" with hashtable_insert...
-After set_insert: 177 malloc, 0 free, 0 free(NULL), 177 net
-After hashtable_insert: 177 malloc, 0 free, 0 free(NULL), 177 net
-Return value: 1
 Inserting (You're,"You're throwin' rocks around your room") to hashtable "ht2" with hashtable_insert...
-After set_new: 178 malloc, 0 free, 0 free(NULL), 178 net
-After set_insert: 180 malloc, 0 free, 0 free(NULL), 180 net
-After hashtable_insert: 180 malloc, 0 free, 0 free(NULL), 180 net
+After set_new: 176 malloc, 0 free, 0 free(NULL), 176 net
+After set_insert: 178 malloc, 0 free, 0 free(NULL), 178 net
+After hashtable_insert: 178 malloc, 0 free, 0 free(NULL), 178 net
 Return value: 1
 Inserting (And,"And while you're bleeding on your back in the glass") to hashtable "ht1" with hashtable_insert...
 Return value: 0
 Inserting (And,"And while you're bleeding on your back in the glass") to hashtable "ht2" with hashtable_insert...
 Return value: 0
 Inserting (I'll,"I'll be glad that I made it out") to hashtable "ht1" with hashtable_insert...
-After set_insert: 182 malloc, 0 free, 0 free(NULL), 182 net
-After hashtable_insert: 182 malloc, 0 free, 0 free(NULL), 182 net
+After set_insert: 180 malloc, 0 free, 0 free(NULL), 180 net
+After hashtable_insert: 180 malloc, 0 free, 0 free(NULL), 180 net
 Return value: 1
 Inserting (I'll,"I'll be glad that I made it out") to hashtable "ht2" with hashtable_insert...
-After set_new: 183 malloc, 0 free, 0 free(NULL), 183 net
-After set_insert: 185 malloc, 0 free, 0 free(NULL), 185 net
-After hashtable_insert: 185 malloc, 0 free, 0 free(NULL), 185 net
+After set_new: 181 malloc, 0 free, 0 free(NULL), 181 net
+After set_insert: 183 malloc, 0 free, 0 free(NULL), 183 net
+After hashtable_insert: 183 malloc, 0 free, 0 free(NULL), 183 net
 Return value: 1
 Inserting (And,"And sorry that it all went down like it did") to hashtable "ht1" with hashtable_insert...
 Return value: 0
@@ -529,13 +530,13 @@ Return value: 0
 Inserting (I,"I could scream to drown you out") to hashtable "ht2" with hashtable_insert...
 Return value: 0
 Inserting (Hey,,"Hey, why do you sing with an English accent?") to hashtable "ht1" with hashtable_insert...
-After set_insert: 187 malloc, 0 free, 0 free(NULL), 187 net
-After hashtable_insert: 187 malloc, 0 free, 0 free(NULL), 187 net
+After set_insert: 185 malloc, 0 free, 0 free(NULL), 185 net
+After hashtable_insert: 185 malloc, 0 free, 0 free(NULL), 185 net
 Return value: 1
 Inserting (Hey,,"Hey, why do you sing with an English accent?") to hashtable "ht2" with hashtable_insert...
-After set_new: 188 malloc, 0 free, 0 free(NULL), 188 net
-After set_insert: 190 malloc, 0 free, 0 free(NULL), 190 net
-After hashtable_insert: 190 malloc, 0 free, 0 free(NULL), 190 net
+After set_new: 186 malloc, 0 free, 0 free(NULL), 186 net
+After set_insert: 188 malloc, 0 free, 0 free(NULL), 188 net
+After hashtable_insert: 188 malloc, 0 free, 0 free(NULL), 188 net
 Return value: 1
 Inserting (I,"I guess it's too late to change it now") to hashtable "ht1" with hashtable_insert...
 Return value: 0
@@ -546,13 +547,13 @@ Return value: 0
 Inserting (You,"You know I'm never gonna let you have it") to hashtable "ht2" with hashtable_insert...
 Return value: 0
 Inserting (But,"But I will try to drown you out") to hashtable "ht1" with hashtable_insert...
-After set_insert: 192 malloc, 0 free, 0 free(NULL), 192 net
-After hashtable_insert: 192 malloc, 0 free, 0 free(NULL), 192 net
+After set_insert: 190 malloc, 0 free, 0 free(NULL), 190 net
+After hashtable_insert: 190 malloc, 0 free, 0 free(NULL), 190 net
 Return value: 1
 Inserting (But,"But I will try to drown you out") to hashtable "ht2" with hashtable_insert...
-After set_new: 193 malloc, 0 free, 0 free(NULL), 193 net
-After set_insert: 195 malloc, 0 free, 0 free(NULL), 195 net
-After hashtable_insert: 195 malloc, 0 free, 0 free(NULL), 195 net
+After set_new: 191 malloc, 0 free, 0 free(NULL), 191 net
+After set_insert: 193 malloc, 0 free, 0 free(NULL), 193 net
+After hashtable_insert: 193 malloc, 0 free, 0 free(NULL), 193 net
 Return value: 1
 Inserting (You,"You said when you met me you were bored") to hashtable "ht1" with hashtable_insert...
 Return value: 0
@@ -579,40 +580,40 @@ Return value: 0
 Inserting (And,"And I want to know what would happen") to hashtable "ht2" with hashtable_insert...
 Return value: 0
 Inserting (If,"If I surrender to the sound") to hashtable "ht1" with hashtable_insert...
-After set_insert: 197 malloc, 0 free, 0 free(NULL), 197 net
-After hashtable_insert: 197 malloc, 0 free, 0 free(NULL), 197 net
+After set_insert: 195 malloc, 0 free, 0 free(NULL), 195 net
+After hashtable_insert: 195 malloc, 0 free, 0 free(NULL), 195 net
 Return value: 1
 Inserting (If,"If I surrender to the sound") to hashtable "ht2" with hashtable_insert...
-After set_new: 198 malloc, 0 free, 0 free(NULL), 198 net
+After set_new: 196 malloc, 0 free, 0 free(NULL), 196 net
+After set_insert: 198 malloc, 0 free, 0 free(NULL), 198 net
+After hashtable_insert: 198 malloc, 0 free, 0 free(NULL), 198 net
+Return value: 1
+Inserting (Surrender,"Surrender to the sound") to hashtable "ht1" with hashtable_insert...
 After set_insert: 200 malloc, 0 free, 0 free(NULL), 200 net
 After hashtable_insert: 200 malloc, 0 free, 0 free(NULL), 200 net
 Return value: 1
-Inserting (Surrender,"Surrender to the sound") to hashtable "ht1" with hashtable_insert...
-After set_insert: 202 malloc, 0 free, 0 free(NULL), 202 net
-After hashtable_insert: 202 malloc, 0 free, 0 free(NULL), 202 net
-Return value: 1
 Inserting (Surrender,"Surrender to the sound") to hashtable "ht2" with hashtable_insert...
-After set_new: 203 malloc, 0 free, 0 free(NULL), 203 net
+After set_new: 201 malloc, 0 free, 0 free(NULL), 201 net
+After set_insert: 203 malloc, 0 free, 0 free(NULL), 203 net
+After hashtable_insert: 203 malloc, 0 free, 0 free(NULL), 203 net
+Return value: 1
+Inserting (Final,"Final line to be added from stdin") to hashtable "ht1" with hashtable_insert...
 After set_insert: 205 malloc, 0 free, 0 free(NULL), 205 net
 After hashtable_insert: 205 malloc, 0 free, 0 free(NULL), 205 net
 Return value: 1
-Inserting (Final,"Final line to be added from stdin") to hashtable "ht1" with hashtable_insert...
-After set_insert: 207 malloc, 0 free, 0 free(NULL), 207 net
-After hashtable_insert: 207 malloc, 0 free, 0 free(NULL), 207 net
-Return value: 1
 Inserting (Final,"Final line to be added from stdin") to hashtable "ht2" with hashtable_insert...
-After set_new: 208 malloc, 0 free, 0 free(NULL), 208 net
+After set_new: 206 malloc, 0 free, 0 free(NULL), 206 net
+After set_insert: 208 malloc, 0 free, 0 free(NULL), 208 net
+After hashtable_insert: 208 malloc, 0 free, 0 free(NULL), 208 net
+Return value: 1
+Inserting (unique key,"Final line to be added from stdin") to hashtable "ht1" with hashtable_insert...
 After set_insert: 210 malloc, 0 free, 0 free(NULL), 210 net
 After hashtable_insert: 210 malloc, 0 free, 0 free(NULL), 210 net
 Return value: 1
-Inserting (unique key,"Final line to be added from stdin") to hashtable "ht1" with hashtable_insert...
-After set_insert: 212 malloc, 0 free, 0 free(NULL), 212 net
-After hashtable_insert: 212 malloc, 0 free, 0 free(NULL), 212 net
-Return value: 1
 Inserting (unique key,"Final line to be added from stdin") to hashtable "ht2" with hashtable_insert...
-After set_new: 213 malloc, 0 free, 0 free(NULL), 213 net
-After set_insert: 215 malloc, 0 free, 0 free(NULL), 215 net
-After hashtable_insert: 215 malloc, 0 free, 0 free(NULL), 215 net
+After set_new: 211 malloc, 0 free, 0 free(NULL), 211 net
+After set_insert: 213 malloc, 0 free, 0 free(NULL), 213 net
+After hashtable_insert: 213 malloc, 0 free, 0 free(NULL), 213 net
 Return value: 1
 Count of "ht1": 41 (expected count: 41)
 Count of "ht2": 41 (expected count: 41)
@@ -1171,138 +1172,136 @@ slot 9: {(Somebody,"Somebody roll the windows down"),(stdin,"Stdin"),}
 Testing hashtable_delete...
 
 Deleting null hashtable...
-End of hashtable_delete: 215 malloc, 0 free, 0 free(NULL), 215 net
+End of hashtable_delete: 213 malloc, 0 free, 0 free(NULL), 213 net
 
 Deleting hashtable "ht1" with (key,item) pairs...
-End of set_delete: 215 malloc, 11 free, 0 free(NULL), 204 net
-End of set_delete: 215 malloc, 16 free, 0 free(NULL), 199 net
-End of set_delete: 215 malloc, 21 free, 0 free(NULL), 194 net
-End of set_delete: 215 malloc, 26 free, 0 free(NULL), 189 net
-End of set_delete: 215 malloc, 39 free, 0 free(NULL), 176 net
-End of set_delete: 215 malloc, 54 free, 0 free(NULL), 161 net
-End of set_delete: 215 malloc, 61 free, 0 free(NULL), 154 net
-End of set_delete: 215 malloc, 78 free, 0 free(NULL), 137 net
-End of set_delete: 215 malloc, 87 free, 0 free(NULL), 128 net
-End of set_delete: 215 malloc, 92 free, 0 free(NULL), 123 net
-End of hashtable_delete: 215 malloc, 94 free, 0 free(NULL), 121 net
+End of set_delete: 213 malloc, 11 free, 0 free(NULL), 202 net
+End of set_delete: 213 malloc, 16 free, 0 free(NULL), 197 net
+End of set_delete: 213 malloc, 21 free, 0 free(NULL), 192 net
+End of set_delete: 213 malloc, 26 free, 0 free(NULL), 187 net
+End of set_delete: 213 malloc, 39 free, 0 free(NULL), 174 net
+End of set_delete: 213 malloc, 54 free, 0 free(NULL), 159 net
+End of set_delete: 213 malloc, 61 free, 0 free(NULL), 152 net
+End of set_delete: 213 malloc, 78 free, 0 free(NULL), 135 net
+End of set_delete: 213 malloc, 87 free, 0 free(NULL), 126 net
+End of set_delete: 213 malloc, 92 free, 0 free(NULL), 121 net
+End of hashtable_delete: 213 malloc, 94 free, 0 free(NULL), 119 net
 
 Deleting hashtable "ht2" with (key,item) pairs...
-End of set_delete: 215 malloc, 97 free, 0 free(NULL), 118 net
-End of set_delete: 215 malloc, 100 free, 0 free(NULL), 115 net
-End of set_delete: 215 malloc, 100 free, 0 free(NULL), 115 net
-End of set_delete: 215 malloc, 103 free, 0 free(NULL), 112 net
-End of set_delete: 215 malloc, 103 free, 0 free(NULL), 112 net
-End of set_delete: 215 malloc, 106 free, 0 free(NULL), 109 net
-End of set_delete: 215 malloc, 106 free, 0 free(NULL), 109 net
-End of set_delete: 215 malloc, 109 free, 0 free(NULL), 106 net
-End of set_delete: 215 malloc, 109 free, 0 free(NULL), 106 net
-End of set_delete: 215 malloc, 109 free, 0 free(NULL), 106 net
-End of set_delete: 215 malloc, 109 free, 0 free(NULL), 106 net
-End of set_delete: 215 malloc, 109 free, 0 free(NULL), 106 net
-End of set_delete: 215 malloc, 109 free, 0 free(NULL), 106 net
-End of set_delete: 215 malloc, 112 free, 0 free(NULL), 103 net
-End of set_delete: 215 malloc, 115 free, 0 free(NULL), 100 net
-End of set_delete: 215 malloc, 118 free, 0 free(NULL), 97 net
-End of set_delete: 215 malloc, 121 free, 0 free(NULL), 94 net
-End of set_delete: 215 malloc, 121 free, 0 free(NULL), 94 net
-End of set_delete: 215 malloc, 124 free, 0 free(NULL), 91 net
-End of set_delete: 215 malloc, 124 free, 0 free(NULL), 91 net
-End of set_delete: 215 malloc, 127 free, 0 free(NULL), 88 net
-End of set_delete: 215 malloc, 127 free, 0 free(NULL), 88 net
-End of set_delete: 215 malloc, 127 free, 0 free(NULL), 88 net
-End of set_delete: 215 malloc, 127 free, 0 free(NULL), 88 net
-End of set_delete: 215 malloc, 127 free, 0 free(NULL), 88 net
-End of set_delete: 215 malloc, 130 free, 0 free(NULL), 85 net
-End of set_delete: 215 malloc, 133 free, 0 free(NULL), 82 net
-End of set_delete: 215 malloc, 136 free, 0 free(NULL), 79 net
-End of set_delete: 215 malloc, 136 free, 0 free(NULL), 79 net
-End of set_delete: 215 malloc, 141 free, 0 free(NULL), 74 net
-End of set_delete: 215 malloc, 144 free, 0 free(NULL), 71 net
-End of set_delete: 215 malloc, 144 free, 0 free(NULL), 71 net
-End of set_delete: 215 malloc, 144 free, 0 free(NULL), 71 net
-End of set_delete: 215 malloc, 144 free, 0 free(NULL), 71 net
-End of set_delete: 215 malloc, 147 free, 0 free(NULL), 68 net
-End of set_delete: 215 malloc, 147 free, 0 free(NULL), 68 net
-End of set_delete: 215 malloc, 147 free, 0 free(NULL), 68 net
-End of set_delete: 215 malloc, 150 free, 0 free(NULL), 65 net
-End of set_delete: 215 malloc, 150 free, 0 free(NULL), 65 net
-End of set_delete: 215 malloc, 150 free, 0 free(NULL), 65 net
-End of set_delete: 215 malloc, 153 free, 0 free(NULL), 62 net
-End of set_delete: 215 malloc, 153 free, 0 free(NULL), 62 net
-End of set_delete: 215 malloc, 153 free, 0 free(NULL), 62 net
-End of set_delete: 215 malloc, 153 free, 0 free(NULL), 62 net
-End of set_delete: 215 malloc, 153 free, 0 free(NULL), 62 net
-End of set_delete: 215 malloc, 153 free, 0 free(NULL), 62 net
-End of set_delete: 215 malloc, 153 free, 0 free(NULL), 62 net
-End of set_delete: 215 malloc, 156 free, 0 free(NULL), 59 net
-End of set_delete: 215 malloc, 156 free, 0 free(NULL), 59 net
-End of set_delete: 215 malloc, 156 free, 0 free(NULL), 59 net
-End of set_delete: 215 malloc, 156 free, 0 free(NULL), 59 net
-End of set_delete: 215 malloc, 156 free, 0 free(NULL), 59 net
-End of set_delete: 215 malloc, 161 free, 0 free(NULL), 54 net
-End of set_delete: 215 malloc, 161 free, 0 free(NULL), 54 net
-End of set_delete: 215 malloc, 161 free, 0 free(NULL), 54 net
-End of set_delete: 215 malloc, 161 free, 0 free(NULL), 54 net
-End of set_delete: 215 malloc, 164 free, 0 free(NULL), 51 net
-End of set_delete: 215 malloc, 167 free, 0 free(NULL), 48 net
-End of set_delete: 215 malloc, 172 free, 0 free(NULL), 43 net
-End of set_delete: 215 malloc, 172 free, 0 free(NULL), 43 net
-End of set_delete: 215 malloc, 175 free, 0 free(NULL), 40 net
-End of set_delete: 215 malloc, 175 free, 0 free(NULL), 40 net
-End of set_delete: 215 malloc, 175 free, 0 free(NULL), 40 net
-End of set_delete: 215 malloc, 175 free, 0 free(NULL), 40 net
-End of set_delete: 215 malloc, 180 free, 0 free(NULL), 35 net
-End of set_delete: 215 malloc, 180 free, 0 free(NULL), 35 net
-End of set_delete: 215 malloc, 180 free, 0 free(NULL), 35 net
-End of set_delete: 215 malloc, 183 free, 0 free(NULL), 32 net
-End of set_delete: 215 malloc, 183 free, 0 free(NULL), 32 net
-End of set_delete: 215 malloc, 183 free, 0 free(NULL), 32 net
-End of set_delete: 215 malloc, 183 free, 0 free(NULL), 32 net
-End of set_delete: 215 malloc, 183 free, 0 free(NULL), 32 net
-End of set_delete: 215 malloc, 183 free, 0 free(NULL), 32 net
-End of set_delete: 215 malloc, 183 free, 0 free(NULL), 32 net
-End of set_delete: 215 malloc, 186 free, 0 free(NULL), 29 net
-End of set_delete: 215 malloc, 189 free, 0 free(NULL), 26 net
-End of set_delete: 215 malloc, 189 free, 0 free(NULL), 26 net
-End of set_delete: 215 malloc, 189 free, 0 free(NULL), 26 net
-End of set_delete: 215 malloc, 192 free, 0 free(NULL), 23 net
-End of set_delete: 215 malloc, 192 free, 0 free(NULL), 23 net
-End of set_delete: 215 malloc, 192 free, 0 free(NULL), 23 net
-End of set_delete: 215 malloc, 192 free, 0 free(NULL), 23 net
-End of set_delete: 215 malloc, 192 free, 0 free(NULL), 23 net
-End of set_delete: 215 malloc, 192 free, 0 free(NULL), 23 net
-End of set_delete: 215 malloc, 195 free, 0 free(NULL), 20 net
-End of set_delete: 215 malloc, 195 free, 0 free(NULL), 20 net
-End of set_delete: 215 malloc, 195 free, 0 free(NULL), 20 net
-End of set_delete: 215 malloc, 198 free, 0 free(NULL), 17 net
-End of set_delete: 215 malloc, 198 free, 0 free(NULL), 17 net
-End of set_delete: 215 malloc, 198 free, 0 free(NULL), 17 net
-End of set_delete: 215 malloc, 198 free, 0 free(NULL), 17 net
-End of set_delete: 215 malloc, 201 free, 0 free(NULL), 14 net
-End of set_delete: 215 malloc, 201 free, 0 free(NULL), 14 net
-End of set_delete: 215 malloc, 201 free, 0 free(NULL), 14 net
-End of set_delete: 215 malloc, 201 free, 0 free(NULL), 14 net
-End of set_delete: 215 malloc, 208 free, 0 free(NULL), 7 net
-End of set_delete: 215 malloc, 208 free, 0 free(NULL), 7 net
-End of set_delete: 215 malloc, 211 free, 0 free(NULL), 4 net
-End of set_delete: 215 malloc, 211 free, 0 free(NULL), 4 net
-End of set_delete: 215 malloc, 211 free, 0 free(NULL), 4 net
-End of hashtable_delete: 215 malloc, 213 free, 0 free(NULL), 2 net
-Creating hashtable "ht1" with 3 slots with hashtable_new...
-After hashtable_new: 217 malloc, 213 free, 0 free(NULL), 4 net
+End of set_delete: 213 malloc, 97 free, 0 free(NULL), 116 net
+End of set_delete: 213 malloc, 100 free, 0 free(NULL), 113 net
+End of set_delete: 213 malloc, 100 free, 0 free(NULL), 113 net
+End of set_delete: 213 malloc, 103 free, 0 free(NULL), 110 net
+End of set_delete: 213 malloc, 103 free, 0 free(NULL), 110 net
+End of set_delete: 213 malloc, 106 free, 0 free(NULL), 107 net
+End of set_delete: 213 malloc, 106 free, 0 free(NULL), 107 net
+End of set_delete: 213 malloc, 109 free, 0 free(NULL), 104 net
+End of set_delete: 213 malloc, 109 free, 0 free(NULL), 104 net
+End of set_delete: 213 malloc, 109 free, 0 free(NULL), 104 net
+End of set_delete: 213 malloc, 109 free, 0 free(NULL), 104 net
+End of set_delete: 213 malloc, 109 free, 0 free(NULL), 104 net
+End of set_delete: 213 malloc, 109 free, 0 free(NULL), 104 net
+End of set_delete: 213 malloc, 112 free, 0 free(NULL), 101 net
+End of set_delete: 213 malloc, 115 free, 0 free(NULL), 98 net
+End of set_delete: 213 malloc, 118 free, 0 free(NULL), 95 net
+End of set_delete: 213 malloc, 121 free, 0 free(NULL), 92 net
+End of set_delete: 213 malloc, 121 free, 0 free(NULL), 92 net
+End of set_delete: 213 malloc, 124 free, 0 free(NULL), 89 net
+End of set_delete: 213 malloc, 124 free, 0 free(NULL), 89 net
+End of set_delete: 213 malloc, 127 free, 0 free(NULL), 86 net
+End of set_delete: 213 malloc, 127 free, 0 free(NULL), 86 net
+End of set_delete: 213 malloc, 127 free, 0 free(NULL), 86 net
+End of set_delete: 213 malloc, 127 free, 0 free(NULL), 86 net
+End of set_delete: 213 malloc, 127 free, 0 free(NULL), 86 net
+End of set_delete: 213 malloc, 130 free, 0 free(NULL), 83 net
+End of set_delete: 213 malloc, 133 free, 0 free(NULL), 80 net
+End of set_delete: 213 malloc, 136 free, 0 free(NULL), 77 net
+End of set_delete: 213 malloc, 136 free, 0 free(NULL), 77 net
+End of set_delete: 213 malloc, 141 free, 0 free(NULL), 72 net
+End of set_delete: 213 malloc, 144 free, 0 free(NULL), 69 net
+End of set_delete: 213 malloc, 144 free, 0 free(NULL), 69 net
+End of set_delete: 213 malloc, 144 free, 0 free(NULL), 69 net
+End of set_delete: 213 malloc, 144 free, 0 free(NULL), 69 net
+End of set_delete: 213 malloc, 147 free, 0 free(NULL), 66 net
+End of set_delete: 213 malloc, 147 free, 0 free(NULL), 66 net
+End of set_delete: 213 malloc, 147 free, 0 free(NULL), 66 net
+End of set_delete: 213 malloc, 150 free, 0 free(NULL), 63 net
+End of set_delete: 213 malloc, 150 free, 0 free(NULL), 63 net
+End of set_delete: 213 malloc, 150 free, 0 free(NULL), 63 net
+End of set_delete: 213 malloc, 153 free, 0 free(NULL), 60 net
+End of set_delete: 213 malloc, 153 free, 0 free(NULL), 60 net
+End of set_delete: 213 malloc, 153 free, 0 free(NULL), 60 net
+End of set_delete: 213 malloc, 153 free, 0 free(NULL), 60 net
+End of set_delete: 213 malloc, 153 free, 0 free(NULL), 60 net
+End of set_delete: 213 malloc, 153 free, 0 free(NULL), 60 net
+End of set_delete: 213 malloc, 153 free, 0 free(NULL), 60 net
+End of set_delete: 213 malloc, 156 free, 0 free(NULL), 57 net
+End of set_delete: 213 malloc, 156 free, 0 free(NULL), 57 net
+End of set_delete: 213 malloc, 156 free, 0 free(NULL), 57 net
+End of set_delete: 213 malloc, 156 free, 0 free(NULL), 57 net
+End of set_delete: 213 malloc, 156 free, 0 free(NULL), 57 net
+End of set_delete: 213 malloc, 161 free, 0 free(NULL), 52 net
+End of set_delete: 213 malloc, 161 free, 0 free(NULL), 52 net
+End of set_delete: 213 malloc, 161 free, 0 free(NULL), 52 net
+End of set_delete: 213 malloc, 161 free, 0 free(NULL), 52 net
+End of set_delete: 213 malloc, 164 free, 0 free(NULL), 49 net
+End of set_delete: 213 malloc, 167 free, 0 free(NULL), 46 net
+End of set_delete: 213 malloc, 172 free, 0 free(NULL), 41 net
+End of set_delete: 213 malloc, 172 free, 0 free(NULL), 41 net
+End of set_delete: 213 malloc, 175 free, 0 free(NULL), 38 net
+End of set_delete: 213 malloc, 175 free, 0 free(NULL), 38 net
+End of set_delete: 213 malloc, 175 free, 0 free(NULL), 38 net
+End of set_delete: 213 malloc, 175 free, 0 free(NULL), 38 net
+End of set_delete: 213 malloc, 180 free, 0 free(NULL), 33 net
+End of set_delete: 213 malloc, 180 free, 0 free(NULL), 33 net
+End of set_delete: 213 malloc, 180 free, 0 free(NULL), 33 net
+End of set_delete: 213 malloc, 183 free, 0 free(NULL), 30 net
+End of set_delete: 213 malloc, 183 free, 0 free(NULL), 30 net
+End of set_delete: 213 malloc, 183 free, 0 free(NULL), 30 net
+End of set_delete: 213 malloc, 183 free, 0 free(NULL), 30 net
+End of set_delete: 213 malloc, 183 free, 0 free(NULL), 30 net
+End of set_delete: 213 malloc, 183 free, 0 free(NULL), 30 net
+End of set_delete: 213 malloc, 183 free, 0 free(NULL), 30 net
+End of set_delete: 213 malloc, 186 free, 0 free(NULL), 27 net
+End of set_delete: 213 malloc, 189 free, 0 free(NULL), 24 net
+End of set_delete: 213 malloc, 189 free, 0 free(NULL), 24 net
+End of set_delete: 213 malloc, 189 free, 0 free(NULL), 24 net
+End of set_delete: 213 malloc, 192 free, 0 free(NULL), 21 net
+End of set_delete: 213 malloc, 192 free, 0 free(NULL), 21 net
+End of set_delete: 213 malloc, 192 free, 0 free(NULL), 21 net
+End of set_delete: 213 malloc, 192 free, 0 free(NULL), 21 net
+End of set_delete: 213 malloc, 192 free, 0 free(NULL), 21 net
+End of set_delete: 213 malloc, 192 free, 0 free(NULL), 21 net
+End of set_delete: 213 malloc, 195 free, 0 free(NULL), 18 net
+End of set_delete: 213 malloc, 195 free, 0 free(NULL), 18 net
+End of set_delete: 213 malloc, 195 free, 0 free(NULL), 18 net
+End of set_delete: 213 malloc, 198 free, 0 free(NULL), 15 net
+End of set_delete: 213 malloc, 198 free, 0 free(NULL), 15 net
+End of set_delete: 213 malloc, 198 free, 0 free(NULL), 15 net
+End of set_delete: 213 malloc, 198 free, 0 free(NULL), 15 net
+End of set_delete: 213 malloc, 201 free, 0 free(NULL), 12 net
+End of set_delete: 213 malloc, 201 free, 0 free(NULL), 12 net
+End of set_delete: 213 malloc, 201 free, 0 free(NULL), 12 net
+End of set_delete: 213 malloc, 201 free, 0 free(NULL), 12 net
+End of set_delete: 213 malloc, 208 free, 0 free(NULL), 5 net
+End of set_delete: 213 malloc, 208 free, 0 free(NULL), 5 net
+End of set_delete: 213 malloc, 211 free, 0 free(NULL), 2 net
+End of set_delete: 213 malloc, 211 free, 0 free(NULL), 2 net
+End of set_delete: 213 malloc, 211 free, 0 free(NULL), 2 net
+End of hashtable_delete: 213 malloc, 213 free, 0 free(NULL), 0 net
+Creating hashtable "ht1" with 1 slots with hashtable_new...
+After hashtable_new: 215 malloc, 213 free, 0 free(NULL), 2 net
 
 Deleting hashtable "ht1" with null itemdelete function...
-End of set_delete: 217 malloc, 213 free, 0 free(NULL), 4 net
-End of set_delete: 217 malloc, 213 free, 0 free(NULL), 4 net
-End of set_delete: 217 malloc, 213 free, 0 free(NULL), 4 net
-End of hashtable_delete: 217 malloc, 215 free, 0 free(NULL), 2 net
+End of set_delete: 215 malloc, 213 free, 0 free(NULL), 2 net
+End of hashtable_delete: 215 malloc, 215 free, 0 free(NULL), 0 net
 Creating hashtable "ht1" with 3 slots with hashtable_new...
-After hashtable_new: 219 malloc, 215 free, 0 free(NULL), 4 net
+After hashtable_new: 217 malloc, 215 free, 0 free(NULL), 2 net
 
 Deleting empty hashtable "ht1"...
-End of set_delete: 219 malloc, 215 free, 0 free(NULL), 4 net
-End of set_delete: 219 malloc, 215 free, 0 free(NULL), 4 net
-End of set_delete: 219 malloc, 215 free, 0 free(NULL), 4 net
-End of hashtable_delete: 219 malloc, 217 free, 0 free(NULL), 2 net
+End of set_delete: 217 malloc, 215 free, 0 free(NULL), 2 net
+End of set_delete: 217 malloc, 215 free, 0 free(NULL), 2 net
+End of set_delete: 217 malloc, 215 free, 0 free(NULL), 2 net
+End of hashtable_delete: 217 malloc, 217 free, 0 free(NULL), 0 net
 
 ****************************************

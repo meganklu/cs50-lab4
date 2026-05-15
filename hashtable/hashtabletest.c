@@ -62,8 +62,6 @@ main(const int argc, const char* argv[])
     printf("Return value: %d\n", created);
     created = testNew(&ht1, "ht1", -5);
     printf("Return value: %d\n", created);
-    created = testNew(&ht1, "ht1", 1);
-    printf("Return value: %d\n", created);
     
     // `hashtable_new` test: Create a new hashtable
     if (!testNew(&ht1, "ht1", 10)) {
@@ -304,7 +302,7 @@ main(const int argc, const char* argv[])
     hashtable_delete(ht2, lineDelete);
 
     // Remake hashtable for next test
-    testNew(&ht1, "ht1", 3);
+    testNew(&ht1, "ht1", 1);
 
     // Null itemdelete
     printf("\nDeleting hashtable \"ht1\" with null itemdelete function...\n");

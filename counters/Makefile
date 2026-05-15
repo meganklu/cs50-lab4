@@ -6,7 +6,7 @@ OBJS = counterstest.o counters.o ../lib/file.o ../lib/mem.o
 LIBS =
 
 # uncomment the following to turn on verbose memory logging
-# TESTING=-DMEMTEST
+TESTING=-DMEMTEST
 
 CFLAGS = -Wall -pedantic -std=c11 -ggdb $(TESTING) -I../lib
 CC = gcc
