@@ -30,6 +30,7 @@
 
 /**************** local functions ****************/
 /* not visible outside this file */
+
 static void testNew(set_t** set);
 static int testIterateCount(set_t* set, int expected);
 static void testPrint(set_t* set);
@@ -255,6 +256,17 @@ main(const int argc, const char* argv[])
     return 0;
 }
 
+/**************** testNew ****************/
+/* Helper function to create a set using set_new.
+ * 
+ * Caller provides:
+ *   A valid pointer to a set_t pointer.
+ * We print:
+ *   A line to stdout to show that set_new is being tested.
+ *   To stderr if set_new fails.
+ * We exit:
+ *   If the set_new returned NULL.
+ */
 static void
 testNew(set_t** set)
 {
@@ -267,6 +279,17 @@ testNew(set_t** set)
     }
 }
 
+/**************** testIterateCount ****************/
+/* Helper function to count the number of (key,item) pairs in a set
+ * using set_iterate.
+ * 
+ * Caller provides:
+ *   A valid pointer to set_t and expected count (non-negative integer).
+ * We print:
+ *   The count and expected count.
+ * We return:
+ *   The set count.
+ */
 static int 
 testIterateCount(set_t* set, int expected)
 {
@@ -276,6 +299,15 @@ testIterateCount(set_t* set, int expected)
     return count;
 }
 
+/**************** testPrint ****************/
+/* Helper function to print the set using set_print.
+ * 
+ * Caller provides:
+ *   A valid pointer to set_t.
+ * We print:
+ *   A line to stdout to show that set_print is being tested
+ *   and the result of set_print.
+ */
 static void 
 testPrint(set_t* set)
 {
@@ -284,6 +316,16 @@ testPrint(set_t* set)
     printf("\n");
 }
 
+/**************** testInsert ****************/
+/* Helper function to insert a (key,item) pair into a set
+ * using set_insert.
+ * 
+ * Caller provides:
+ *   A valid pointer to set_t, string key, and item.
+ * We print:
+ *   A line to stdout to show that set_print is being tested
+ *   and the return value of set_insert.
+ */
 static int 
 testInsert(set_t* set, const char* key, void* item)
 {
@@ -298,6 +340,16 @@ testInsert(set_t* set, const char* key, void* item)
     return inserted;
 }
 
+/**************** testFind ****************/
+/* Helper function to find a key in a set
+ * using set_find.
+ * 
+ * Caller provides:
+ *   A valid pointer to set_t and string key.
+ * We print:
+ *   A line to stdout to show that set_find is being tested
+ *   and the item located by set_find in (key,item) pair form.
+ */
 static void 
 testFind(set_t* set, const char* key)
 {
@@ -311,23 +363,16 @@ testFind(set_t* set, const char* key)
     printf("\n");
 }
 
-/* Count the non-null (key,item) pairs in the set.
- * note here we don't care what kind of item is in set.
- */
-static void
-pairCount(void* arg, const char* key, void* item)
-{
-    int* npairs = arg;
-
-    if (npairs != NULL && key != NULL && item != NULL)
-    {
-        (*npairs)++;
-    }
-}
-
-/* Print the (key,item) pair in parantheses and separated by a comma.
- * Format the line (item), in quotes.
- * (null) will be printed as the key or item if it is a NULL pointer
+/**************** pairPrint ****************/
+/* itemprint function for the lines of text in the set.
+ * 
+ * Caller provides:
+ *   A valid file pointer, string key, and line (item).
+ * We print:
+ *   The (key,item) pair in parantheses and separated by a comma
+ *   to the provided fp.
+ *   The line (item) is formatted in quotes.
+ *   (null) will be printed as the key/item if it is a NULL pointer.
  */
 static void 
 pairPrint(FILE* fp, const char* key, void* item)
@@ -359,7 +404,38 @@ pairPrint(FILE* fp, const char* key, void* item)
     fputc(')', fp);
 }
 
-// Delete a line
+/**************** pairCount ****************/
+/* itemfunc function to count the (key,item) pairs in the set
+ * using set_iterate.
+ * 
+ * Caller provides:
+ *   A pointer to an integer for the counter as arg,
+ *   a key, and an item.
+ * We do:
+ *   Count the non-null (key,item) pairs in the set.
+ * Note:
+ *   We don't care what kind of item is in set.
+ */
+static void
+pairCount(void* arg, const char* key, void* item)
+{
+    int* npairs = arg;
+
+    if (npairs != NULL && key != NULL && item != NULL)
+    {
+        (*npairs)++;
+    }
+}
+
+/**************** lineDelete ****************/
+/* itemdelete function free the lines stored as items in the set.
+ * 
+ * Caller provides:
+ *   A pointer to a line stored in the heap 
+ *   (intially created using malloc).
+ * We do:
+ *   Free the memory pointed to by the line if the item is not NULL.
+ */
 static void 
 lineDelete(void* item)
 {
@@ -369,7 +445,17 @@ lineDelete(void* item)
     }
 }
 
-// Capitalizes the first character in the line
+/**************** pairCount ****************/
+/* itemfunc function to capitalize the first character in the line
+ * (item) using set_iterate.
+ * 
+ * Caller provides:
+ *   An item.
+ * We do:
+ *   Capitalize the first character in the line.
+ * Note:
+ *   An argument arg is not needed/used.
+ */
 static void 
 lineEdit(void* arg, const char* key, void* item)
 {
@@ -385,6 +471,12 @@ lineEdit(void* arg, const char* key, void* item)
     }
 }
 
+/**************** pairCount ****************/
+/* itemfunc function that is empty.
+ * 
+ * We guarantee:
+ *   None of the argument parameters will be changed.
+ */
 static void 
 lineEmpty(void* arg, const char* key, void*item)
 {
