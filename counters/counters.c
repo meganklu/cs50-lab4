@@ -166,7 +166,7 @@ counters_get(counters_t* ctrs, const int key)
 {
     // Check if parameters are valid 
     // (invalid if ctrs is NULL or key is negative)
-    if (ctrs == NULL | key < 0) {
+    if (ctrs == NULL || key < 0) {
         return 0;
     }
 
