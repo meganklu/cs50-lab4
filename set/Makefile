@@ -18,8 +18,9 @@ settest: $(OBJS)
 	$(CC) $(CFLAGS) $^ $(LIBS) -o $@
 
 settest.o: set.h ../lib/file.h
-set.o: set.h
+set.o: set.h ../lib/mem.h
 ../lib/file.o: ../lib/file.h
+../lib/mem.o: ../lib/mem.h
 
 .PHONY: test valgrind clean
 
