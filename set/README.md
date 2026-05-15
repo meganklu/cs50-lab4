@@ -112,7 +112,7 @@ Comments in `settest.c` show when each of these cases are tested.
 - Null itemfunc
 - One (key,item) pair in set
 - Multiple (key,item) pairs in set and valid function
-    - Check set and its contents are not changed by this function with `set_print` 
+    - Check set and its contents are not changed by this function with `set_print` and an empty function
 - Multiple (key,item) pairs in set and valid function that changes contents of the items
     - Check contents of the items are changed with `set_print` 
 

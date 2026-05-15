@@ -5,6 +5,7 @@ One
 Line that will also be a duplicate
 Unique line
 Another unique line
+another one but lowercase a
 1234567890
 Hello world
 1 2 3
@@ -14,5 +15,6 @@ Hello world
 <3 The key will be a heart
  
 Megan Lu
-
-Final line to be added
+ HI!
+stdin
+Final line to be added from stdin
