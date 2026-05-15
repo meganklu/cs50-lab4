@@ -87,7 +87,7 @@ Each number is added to two counter sets.
 One counter set uses `counters_add` to add numbers.
 The other counter set is modified using `counters_set` where the number is both the key and the counter value.
 The test then gets the count of specific keys.
-It tests a the error and edge cases described below.
+It tests the error and edge cases described below.
 Comments in `counterstest.c` show where each of these cases are tested.
 
 `counters_new` tests:

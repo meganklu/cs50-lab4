@@ -40,7 +40,7 @@ hashtable_t* hashtable_new(const int num_slots);
  *   valid pointer to hashtable, valid string for key, valid pointer for item.
  * We return:
  *   false if key exists in ht, any parameter is NULL, or error;
- *   true iff new item was inserted.
+ *   true if new item was inserted.
  * Notes:
  *   The key string is copied for use by the hashtable; that is, the module
  *   is responsible for allocating memory for a copy of the key string, and

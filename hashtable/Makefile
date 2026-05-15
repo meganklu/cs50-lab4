@@ -6,9 +6,9 @@ OBJS = hashtabletest.o hashtable.o hash.o ../set/set.o ../lib/file.o ../lib/mem.
 LIBS =
 
 # uncomment the following to turn on verbose memory logging
-# TESTING=-DMEMTEST
+TESTING=-DMEMTEST
 
-CFLAGS = -Wall -pedantic -std=c11 -ggdb $(TESTING) -I../lib
+CFLAGS = -Wall -pedantic -std=c11 -ggdb $(TESTING) -I../lib -I../set
 CC = gcc
 MAKE = make
 # for memory-leak tests
@@ -21,6 +21,7 @@ hashtabletest.o: hashtable.h ../lib/file.h
 hashtable.o: hashtable.h hash.h ../set/set.h ../lib/mem.h
 ../lib/file.o: ../lib/file.h
 ../lib/mem.o: ../lib/mem.h
+../set/set.o: ../set/set.h ../lib/mem.h
 
 .PHONY: test valgrind clean
 

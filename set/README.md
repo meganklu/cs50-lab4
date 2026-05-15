@@ -72,7 +72,7 @@ To compile, simply `make set.o`.
 The `settest.c` program reads lines from stdin and inserts each into a set as the item. 
 The key is the first word in the line.
 The test then searches for specific keys.
-It tests a the error and edge cases described below.
+It tests the error and edge cases described below.
 Comments in `settest.c` show where each of these cases are tested.
 
 `set_new` tests:
@@ -110,6 +110,7 @@ Comments in `settest.c` show where each of these cases are tested.
 `set_iterate` tests:
 - Null set
 - Null itemfunc
+- Empty set
 - One (key,item) pair in set
 - Multiple (key,item) pairs in set and valid function
     - Check set and its contents are not changed by this function with `set_print` and an empty function

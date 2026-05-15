@@ -204,6 +204,7 @@ main(const int argc, const char* argv[])
     printf("\nIterating over null set to count items...\n");
     testIterateCount(NULL, 0);
 
+    // Null itemfunc
     printf("\nIterating with null itemfunc...\n");
     set_iterate(set, &setCount, NULL);
 
@@ -323,7 +324,7 @@ testPrint(set_t* set)
  * Caller provides:
  *   A valid pointer to set_t, string key, and item.
  * We print:
- *   A line to stdout to show that set_print is being tested
+ *   A line to stdout to show that set_insert is being tested
  *   and the return value of set_insert.
  */
 static int 
